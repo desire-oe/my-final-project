@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Base- Tailwind CSS</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+
+  <!-- Bootstrap Icons (for sun & moon if needed later) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <style>
+    body {
+      padding-top: 80px; /* prevent navbar from overlapping content */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top" style="margin-top: 0px;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="assets/images/logo-light.svg" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav" style="margin-left: 100px;">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#" style="color: blue;">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="margin-left: 40px; color: grey;">Features</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" style="margin-left: 40px; color: grey;">
+            Pages
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Blog Grid</a></li>
+            <li><a class="dropdown-item" href="#">Blog Single</a></li>
+            <li><a class="dropdown-item" href="#">Sign In</a></li>
+            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="margin-left: 40px; color: grey;">Support</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="margin-left: 290px;"><svg :class="{ 'wn' : page === 'home', 'xh' : page === 'home' &amp;&amp; stickyMenu }" class="th om wn xh" width="25" height="25" viewBox="0 0 25 25" fill="#79808A" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z" fill=""></path>
+              </svg></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="margin-left: 40px; color: grey;">Sign In</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="margin-left: 40px; color: grey;">Sign Out</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- New Section -->
+<section class="py-5 bg-white" style="height: auto; overflow: hidden;">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Text -->
+      <div class="col-lg-6 mb-4 mb-lg-0" style="margin-top: 0px;">
+        <h1 class="fw-bold mb-3" 
+            style="font-size: 43px; font-weight: 600; font-family: sans-serif;">
+          We specialize in UI/UX,web<br class="d-none d-md-block"> 
+          Development, Digital<br class="d-none d-md-block"> Marketing
+        </h1>
+        <p class="lead mb-4" style="color: #6b7280; line-height: 1.6;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br class="d-none d-md-block"> 
+          Quisque fringilla magna mauris. Nulla fermentum viverra sem<br class="d-none d-md-block"> 
+          eu rhoncus consequat varius nisi quis, posuere magna.
+        </p>
+
+        <!-- Button + Contact Info -->
+        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-3">
+          <a href="#" class="btn btn-primary btn-lg" 
+             style="font-size: 16px; border-radius: 30px;">Get Started Now</a>
+          <div>
+            <p class="mb-0 fw-bold" style="font-size: 20px;">Call Us (0123) 456 – 789</p>
+            <p class="mb-0 text-muted">For any question or concern </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="col-lg-6 text-center position-relative mt-4 mt-lg-0" style="min-height: 400px;">
+        
+        <!-- Decorative purple circle -->
+        <img src="assets/images/shape-04.svg" alt="" 
+             class="shape-circle" 
+             style="position: absolute; top: 0; left: -50px; max-width: 120%; height: auto; z-index: 0;">
+
+        <!-- Main hero image -->
+        <img src="assets/images/hero.png" alt="Showcase" 
+             class="img-fluid rounded shadow" 
+             style="position: relative; max-width: 110%; height: auto; z-index: 1; margin-top: -50px;">
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+/* Tablet */
+@media (max-width: 991.98px) {
+  .col-lg-6.text-center img.shape-circle {
+    max-width: 60% !important; /* smaller circle */
+    left: 0 !important;        /* keep it aligned to the top-left */
+    top: 0 !important;         /* stick to top */
+  }
+
+  .col-lg-6.text-center img:not(.shape-circle) {
+    max-width: 100% !important;
+    margin-top: 0 !important;
+    position: relative !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .col-lg-6.text-center img.shape-circle {
+    max-width: 50% !important; /* even smaller on mobile */
+    left: 0 !important;
+    top: 0 !important;
+  }
+
+  .col-lg-6.text-center img:not(.shape-circle) {
+    max-width: 100% !important;
+    margin-top: 0 !important;
+  }
+}
+</style>
+
+
+
+<!-- New 3-Column Section with Side-by-Side Image and Text -->
+<section class="py-5 bg-light">
+  <div class="container" style="margin-top: 80px;">
+    <div class="row">
+      <!-- First Item -->
+      <div class="col-md-4 mb-4 d-flex align-items-center">
+        <img src="assets/images/icon-01.svg" style="background-color: rgb(243 106 141); width: 5.25rem; height: 5.25rem; padding: 20px ; border-radius: 9999px;" alt="Feature 1" class="img-fluid  shadow me-3">
+        <div>
+          <h4 class="fw-bold">24/7 SUPPORT</h4>
+          <p class="mb-0">We deliver quick and reliable solutions tailored to your needs.</p>
+        </div>
+      </div>
+      <!-- Second Item -->
+     <div class="col-md-4 mb-4 d-flex align-items-center">
+        <img src="assets/images/icon-02.svg" style="background-color: rgb(32 202 102 );width: 5.25rem; height: 5.25rem; padding: 20px ; border-radius: 9999px;" alt="Feature 3" class="img-fluid  shadow me-3">
+        <div>
+          <h4 class="fw-bold">Take Ownership</h4>
+          <p class="mb-0">Built with the latest technologies for a smooth experience.</p>
+        </div>
+      </div>
+      <!-- Third Item -->
+      <div class="col-md-4 mb-4 d-flex align-items-center">
+        <img src="assets/images/icon-03.svg" style="background-color: rgb(250 145 97);width: 5.25rem; height: 5.25rem; padding: 20px ; border-radius: 9999px;" alt="Feature 3" class="img-fluid  shadow me-3 ">
+        <div>
+          <h4 class="fw-bold">Team Work</h4>
+          <p class="mb-0">Your data and privacy are protected at every step.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Like Screenshot -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Image Group -->
+      <div class="col-md-6 d-flex">
+        <!-- Left column (two stacked images) -->
+        <div class="d-flex flex-column me-3">
+          <div class="position-relative mb-3">
+            <img src="assets/images/about-01.png" alt="Image 1" class="img-fluid rounded shadow">
+            <!-- Decorative red waves -->
+            <div class="position-absolute top-0 start-0 translate-middle-y" 
+                 style="width:30px; height:80px; background:url('assets/images/shape-05.svg') no-repeat center/cover;">
+            </div>
+          </div>
+          <img src="assets/images/about-02.png" alt="Image 2" class="img-fluid rounded shadow">
+        </div>
+        <!-- Right column (single image with yellow semi-circle behind) -->
+        <div class="position-relative">
+          <!-- Decorative yellow semi-circle -->
+          <div class="position-absolute top-0 start-0 translate-middle-y" 
+               style="width:50px; height:100px; background:gold; border-radius:0 60px 60px 0; margin-top: 60px;">
+          </div>
+          <img src="assets/images/about-03.png" alt="Image 3" class="img-fluid rounded shadow position-relative" style="margin-top: 150px;">
+        </div>
+
+        
+      </div>
+
+      <!-- Text Section -->
+      <div class="col-md-6 ps-5">
+        <p class="text-primary fw-semibold">Why Choose Us</p>
+        <h2 class="fw-bold display-6">We Make Our customers happy by giving Best services.</h2>
+        <p class="text-muted">
+          It is a long established fact that a reader will be distracted by the readable 
+          content of a page when looking at its layout. The point of using Lorem Ipsum.
+        </p>
+
+        
+        <!-- Hover Play Button -->
+        <div class="mt-4" style="display: flex;">
+          <a href="#" class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" 
+             style="width: 70px; height: 70px; font-size: 32px; transition: transform 0.3s;" 
+             onmouseover="this.style.transform='scale(1.2)';" 
+             onmouseout="this.style.transform='scale(1)';">
+            ▶
+          </a>
+          <a href="project.html" style="text-decoration: none; color: black;">
+          <p style="margin-top: 20px; margin-left: 20px;">SEE HOW WE WORK</p>
+        </a>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+     <div class="d-none d-md-block">
+  <img src="assets/images/shape-07.svg"
+       style="margin-left: 400px; margin-top: -30px;">
+</div>
+
+
+</section>
+
+
+<!-- Creative Team Section -->
+<section class="py-5" style="background-color: #f8f9fc; position: relative; background-image: url(assets/images/shape-08.svg);">
+  <div class="container text-center">
+    
+    <!-- Decorative Shapes -->
+    <div class="position-absolute top-0 start-0 mt-5 ms-5">
+      <div style="width:60px; height:60px; border:6px solid #4a6cf7; border-radius:50%;"></div>
+    </div>
+    <div class="position-absolute top-0 end-0 mt-5 me-5">
+      <div style="width:0; height:0; border-left:40px solid transparent; border-right:40px solid transparent; border-bottom:70px solid #f76c8c; transform: rotate(90deg);"></div>
+    </div>
+
+    <!-- Section Text -->
+    <h2 class="fw-bold display-6" style="margin-top: 80px;">Meet With Our Creative<br>Dedicated Team</h2>
+    <p class="text-muted mt-3 mb-5">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. 
+      Donec vitae tortor lacus. Phasellus aliquam ante in maximus.
+    </p>
+
+    <!-- Team Members -->
+    <div class="container-fluid px-3 px-lg-9">
+  <div class="row justify-content-between g-5 text-center text-md-start">
+
+    <div class="col-12 col-sm-6 col-md-4 d-flex flex-column align-items-center">
+      <img src="assets/images/team-01.png"
+           class="shadow img-fluid team-img"
+           alt="Team 1">
+      <p class="prom">Olivia Andrium</p>
+      <p class="pro">Product Manager</p>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 d-flex flex-column align-items-center">
+      <img src="assets/images/team-02.png"
+           class="shadow img-fluid team-img"
+           alt="Team 2">
+      <p class="prom">Jemse Kemorun</p>
+      <p class="pro">Product Designer</p>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 d-flex flex-column align-items-center">
+      <img src="assets/images/team-03.png"
+           class="shadow img-fluid team-img"
+           alt="Team 3">
+      <p class="prom">Avi Pestarica</p>
+      <p class="pro">Web Designer</p>
+    </div>
+
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<!-- Bigger Cards Section with Page Spacing -->
+<section class="py-5 bg-white">
+  <div class="container"> <!-- switched back to container for spacing -->
+    <h2 class="text-center fw-bold mb-5" style="font-size: 47px;">We Offer The Best Quality <br>Service for You</h2>
+    <p class="text-center" style="color: gray; margin-top: -20px; margin-bottom: 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor<br> eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.</p>
+    <div class="row g-4"> <!-- changed from g-0 to g-4 for slight gaps -->
+      
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0  p-5 card-hover">
+          <img src="assets/images/icon-04.svg" class="mx-auto mb-3" alt="icon">
+          <h5 class="fw-semibold" style="font-size: 26px;">Crafted For Startups</h5>
+          <p class="text-muted" style="font-size: 16px;"></p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. In<br> convallis tortor
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0  p-5 card-hover">
+          <img src="assets/images/icon-05.svg" class="mx-auto mb-3" alt="icon">
+          <h5 class="fw-semibold" style="font-size: 26px;">High Quality Design</h5>
+          <p class="text-muted" style="font-size: 16px;">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. In<br> convallis tortor</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0  p-5 card-hover">
+          <img src="assets/images/icon-06.svg" class="mx-auto mb-3" alt="icon">
+          <h5 class="fw-semibold" style="font-size: 26px;">All essential Sections</h5>
+          <p class="text-muted" style="font-size: 16px;">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. In<br> convallis tortor</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0  p-5 card-hover">
+          <img src="assets/images/icon-05 (1).svg" class="mx-auto mb-3" alt="icon">
+          <h5 class="fw-semibold" style="font-size: 26px;">Speed Optimized</h5>
+          <p class="text-muted" style="font-size: 16px;">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. In<br> convallis tortor</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0  p-5 card-hover">
+          <img src="assets/images/icon-06 (1).svg" class="mx-auto mb-3" alt="icon">
+          <h5 class="fw-semibold" style="font-size: 26px;">Fully Customizable</h5>
+          <p class="text-muted" style="font-size: 16px;">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. In<br> convallis tortor</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center border-0  p-5 card-hover">
+          <img src="assets/images/icon-06.svg" class="mx-auto mb-3" alt="icon">
+          <h5 class="fw-semibold" style="font-size: 26px;">Regular Updates</h5>
+          <p class="text-muted" style="font-size: 16px;">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. In<br> convallis tortor</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Pricing Section -->
+<section class="py-5 bg-light text-center" style="height: 900px;">
+  <div class="container">
+    <!-- Heading -->
+     <div class="position-relative">
+          <!-- Decorative yellow semi-circle -->
+          <div class="position-absolute top-0 start-0 translate-middle-y" 
+               style="width:50px; height:100px; background:gold; border-radius:0 60px 60px 0; margin-left: 50px; margin-bottom: 40px;">
+          </div>
+    <h2 class="fw-bold" style="margin-top: 70px;">We Offer Great Affordable Premium Prices.</h2>
+    <div style="display: flex; justify-content: center;">
+        <p class="text-muted mb-4">
+          It is a long established fact that a reader will be distracted by the readable<br>
+          content of a page when looking at its layout. The point of using.
+        </p>
+         <div     
+          style="width:30px; height:80px; background:url('assets/images/shape-03\ \(1\).svg') no-repeat center/cover; margin-left: 50px;">
+        </div>
+    </div>
+    
+
+
+    <div class="d-flex justify-content-center align-items-center mb-5">
+  <span class="me-2">Bill Monthly</span>
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="billingSwitch">
+  </div>
+  <span class="ms-2">Bill Annually</span>
+</div>
+
+    <!-- Pricing Cards -->
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card  h-100 p-4" style="min-height: 350px; border: none;">
+          <h5 class="fw-semibold" style="font-size: 22px;">Starter</h5>
+          <p class="fw-bold price mt-2 mb-3" data-monthly="25" data-annually="250" style="font-size: 25px;">
+  $25 /<span class="period" style="font-size:14px;">month</span>
+</p>
+          <p class="text-muted">Basic features for personal use</p>
+          <button class="btn0 btn-primary1 mx-auto d-block" 
+            style="padding: 12px 52px; font-size: 14px; border-radius: 20px; width: auto; font-size: 16px;">
+            Try For Free
+          </button>
+          <p class="text-muted" style="margin-top: 15px; color: gray;"> 400GB Storage</p>
+          <p class="text-muted" style="color: gray;"> Unlimited Photos & Videos</p>
+          <p class="text-muted" style="color: gray;">Exclusive Support</p>
+          <p class="fw-semibold" style="margin-top: 40px;">7-day Free Trial </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card  h-100 p-4" style="min-height: 350px; border: none;">
+          <h5 class="fw-semibold" style="font-size: 22px;">Growth</h5>
+          <p class="fw-bold price mt-2 mb-3" data-monthly="25" data-annually="250" style="font-size: 25px;">$25 /<span>month</span> </p>
+          <p class="text-muted">For small teams and startups</p>
+          <button class="btn1 btn-primary1 mx-auto d-block" 
+            style="padding: 12px 52px; font-size: 14px; border-radius: 20px; width: auto; font-size: 16px;">
+            Try For Free
+          </button>
+          <p class="text-muted" style="margin-top: 15px; color: gray;"> 400GB Storage</p>
+          <p class="text-muted" style="color: gray;"> Unlimited Photos & Videos</p>
+          <p class="text-muted" style="color: gray;">Exclusive Support</p>
+          <p class="fw-semibold" style="margin-top: 40px;">7-day Free Trial </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card  h-100 p-4" style="min-height: 450px; border: none;">
+          <h5 class="fw-semibold" style="font-size: 22px;">Business</h5>
+          <p class="fw-bold price mt-2 mb-3" data-monthly="50" data-annually="500" style="font-size: 25px;">$50 / month</p>
+          <p class="text-muted">Advanced features for companies</p>
+          <button class="btn0 btn-primary1 mx-auto d-block" 
+            style="padding: 12px 52px; font-size: 14px; border-radius: 20px; width: auto; font-size: 16px;">
+            Try For Free
+          </button>
+          <p class="text-muted" style="margin-top: 15px; color: gray;"> 400GB Storage</p>
+          <p class="text-muted" style="color: gray;"> Unlimited Photos & Videos</p>
+          <p class="text-muted" style="color: gray;">Exclusive Support</p>
+          <p class="fw-semibold" style="margin-top: 40px;">7-day Free Trial </p>
+        </div>      
+      </div>
+    </div>
+  </div>
+     <div class="d-flex justify-content-end px-0">
+  <img src="assets/images/shape-07.svg"
+       class="img-fluid"
+       style="width: 9%; margin-top: -30px;">
+</div>
+
+
+  
+</section>
+
+<!-- JavaScript to Switch Prices -->
+<script>
+  const switchToggle = document.getElementById("billingSwitch");
+  const prices = document.querySelectorAll(".price");
+
+  switchToggle.addEventListener("change", () => {
+    prices.forEach(price => {
+      if (switchToggle.checked) {
+        price.innerHTML = `$${price.dataset.annually} /<span class="period" style="font-size:14px; color:black;">year</span>`;
+      } else {
+        price.innerHTML = `$${price.dataset.monthly} /<span class="period" style="font-size:14px; color:black;">month</span>`;
+      }
+    });
+  });
+</script>
+
+<!-- START: Gallery section arranged like your screenshot -->
+<section class="py-5 bg-light">
+  <div class="container text-center mb-4">
+    <h2 class="fw-bold" style="font-size: 45px; margin-bottom: 20px;">We Offer Great Affordable<br> Premium Prices.</h2>
+    <p class="text-muted" style="margin-bottom: 60px; font-size: 16px;">It is a long established fact that a reader will be distracted by the readable<br> content of a page when looking at its layout. The point of using</p>
+
+    <!-- Filter Buttons -->
+    <div class="btn4-group mt-3" role="group" aria-label="Filter">
+      <button type="button" class="btn4 btn-primary active filter-btn" data-filter="all">All</button>
+      <button type="button" class="btn4 btn-outline-primary filter-btn" data-filter="branding">Branding Strategy</button>
+      <button type="button" class="btn4 btn-outline-primary filter-btn" data-filter="digital">Digital Experiences </button>
+      <button type="button" class="btn4 btn-outline-primary filter-btn" data-filter="ecommerce">Ecommerce</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- CSS Grid that reproduces the exact layout -->
+    <div class="gallery-grid">
+
+      <!-- Top-left small -->
+      <div class="grid-item item-sm" data-category="branding">
+        <div class="media-card">
+          <img src="assets/images/project-01.png" alt="plant" />
+          <div class="overlay"><div>Plant Study</div></div>
+        </div>
+      </div>
+
+      <!-- Top-center small -->
+      <div class="grid-item item-sm" data-category="digital">
+        <div class="media-card">
+          <img src="assets/images/project-02.png" alt="bottle" />
+          <div class="overlay"><div>Product Shot</div></div>
+        </div>
+      </div>
+
+      <!-- Right: featured tall (spans two rows) -->
+      <div class="grid-item item-featured" data-category="digital">
+        <div class="media-card featured-card">
+          <img id="featured-img" src="assets/images/project-04.png" alt="featured" />
+          <div class="overlay"><div id="featured-text">Featured Work</div></div>
+        </div>
+      </div>
+
+      <!-- Middle row: wide image spanning col 1 & 2 -->
+      <div class="grid-item item-wide" data-category="branding">
+        <div class="media-card">
+          <img src="assets/images/project-03.png" alt="laptop" />
+          <div class="overlay"><div>Workspace</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- END: Gallery section -->
+<script>
+  // set up filter buttons to update the featured tile
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // active class styling
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      // find first gallery item in the category (skip the featured tile itself)
+      const items = Array.from(document.querySelectorAll('.gallery-grid .grid-item'))
+        .filter(i => !i.classList.contains('item-featured'));
+
+      let found = null;
+      if (filter === 'all') {
+        found = items[0];
+      } else {
+        found = items.find(i => i.getAttribute('data-category') === filter);
+      }
+
+      // if found, swap the featured image src and overlay text
+      if (found) {
+        const src = found.querySelector('img').getAttribute('src');
+        const label = found.querySelector('.overlay div').textContent;
+        const featuredImg = document.getElementById('featured-img');
+        const featuredText = document.getElementById('featured-text');
+
+        featuredImg.setAttribute('src', src);
+        if (featuredText) featuredText.textContent = label;
+      }
+    });
+  });
+</script>
+
+
+<section class="py-5 bg-light">
+  <div class="container text-center mb-4">
+    <h2 class="fw-bold" style="font-size: 45px; margin-bottom: 20px;">Clients Testimonial</h2>
+    <p class="text-muted" style="margin-bottom: 60px; font-size: 16px; margin-bottom: -30px;">It is a long established fact that a reader will be distracted by the readable<br> content of a page when looking at its layout. The point of using</p>
+  </div>
+  <div class="scaled bg-white position-relative">
+
+  <!-- Decorative bars -->
+  <span class="FC" style="position: absolute; width: 0.375rem; height: 50%; border-top-right-radius: 0.5rem; background-color: rgb(78 107 255); top: 0; right: 0;"></span>
+  <span class="SC" style="position: absolute; width: 0.375rem; height: 50%; border-bottom-right-radius: 0.5rem; background-color: #f76c8c; bottom: 0; right: 0;"></span>
+
+  <!-- Testimonial content -->
+  <div class="test d-flex flex-column flex-md-row align-items-center gap-4" style="width: 100%;">
+
+    <!-- Image -->
+    <img src="./assets/images/testimonial (1).png" 
+         class="img-fluid mb-3 mb-md-0" 
+         style="max-width: 100%; height: auto;" 
+         alt="Testimonial">
+
+    <!-- Text content -->
+    <div class="sets text-center text-md-start" style="width: 100%;">
+      <img class="sh img-fluid mb-3" src="./assets/images/icon-quote (2).svg" alt="Quote Icon">
+
+      <p class="fst-italic fw-medium text-secondary" 
+         style="font-size: 1.5rem; line-height: 2rem; max-width: 100%;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing<br class="d-none d-md-block">
+        elit. In dolor diam, feugiat quis enim sed,<br class="d-none d-md-block">
+        ullamcorper semper ligula. Mauris consequat justo<br class="d-none d-md-block">
+        volutpat.
+      </p>
+
+      <div>
+        <span class="fw-bold">David Smith</span>
+
+        <div class="d-flex flex-column flex-md-row align-items-center gap-2">
+          <p class="fw-semibold text-secondary mb-0">founter @democompany</p>
+          <div class="mini">
+            <img src="./assets/images/brand-light-02.svg" class="img-fluid" alt="Brand Logo">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+       </div>
+  </div>  
+  
+  <!-- Circular Arrow Buttons Section -->
+<section class="py-5 text-center bg-light">
+  <div class="container">
+    <div class="d-flex justify-content-center gap-4">
+      
+      <!-- Left Arrow Button -->
+      <button class="btn7 circle-btn7">
+        <i class="bi bi-arrow-left-short fs-3 fw-bold"></i>
+      </button>
+
+      <!-- Right Arrow Button -->
+      <button class="btn7 circle-btn7">
+        <i class="bi bi-arrow-right-short fs-3 fw-bold"></i>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap Icons (if not already added in <head>) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<!-- Stats Section -->
+<section class="py-5 stats-section text-center position-relative">
+  <!-- Decorative Shapes -->
+  <div class="yellow-ring"></div>
+  <div class="pink-triangle"></div>
+  <div class="blue-semicircle"></div>
+
+  <div class="container py-4" >
+    <div class="row justify-content-center align-items-center">
+      
+      <!-- Stat 1 -->
+      <div class="col-md-3 col-6 mb-4">
+        <h2 class="fw-bold display-6 mb-1" style="font-size: 3.675rem; line-height: 2.25rem; font-weight: 700;">785</h2>
+        <p class="text-muted mb-0">Global Brands</p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="col-md-3 col-6 mb-4">
+        <h2 class="fw-bold display-6 mb-1" style="font-size: 3.675rem; line-height: 2.25rem; font-weight: 700;">533</h2>
+        <p class="text-muted mb-0">Happy Clients</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="col-md-3 col-6 mb-4">
+        <h2 class="fw-bold stat1 display-6 mb-1" style="font-size: 3.675rem; line-height: 2.25rem; font-weight: 700;">865</h2>
+        <p class="text-muted mb-0">Winning Award</p>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="col-md-3 col-6 mb-4">
+        <h2 class="fw-bold display-6 mb-1" style="font-size: 3.675rem; line-height: 2.25rem; font-weight: 700;">346</h2>
+        <p class="text-muted mb-1">Happy Clients</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+  .stats-section {
+    background-image: url(assets/images/shape-12.svg);
+    background-color: rgb(236 240 245 );
+    overflow: hidden;
+    position: relative;
+    height: 330px;
+  }
+
+  /* Yellow Ring (Top Center) */
+  .yellow-ring {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    border: 6px solid #fdd835;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  /* Pink Triangle (Bottom Left) */
+  .pink-triangle {
+    position: absolute;
+    bottom: -15px;
+    left: 40px;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 70px solid #f06292;
+  }
+
+  /* Blue Semi-circle (Right Edge) */
+  .blue-semicircle {
+    position: absolute;
+    top: 35%;
+    right: -40px;
+    width: 80px;
+    height: 80px;
+    background-color: #3f51b5;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+  }
+
+  /* Stat Numbers */
+  .stats-section h2 {
+    color: #111827;
+    font-weight: 700;
+    margin-top: 40px;
+  }
+
+
+
+  .stats-section p {
+    font-size: 19px;
+    font-weight: 600;
+    color: gray;
+    margin-top: 30px;
+  }
+</style>
+
+<!-- Trusted by Global Brands Section -->
+<section class="py-5 text-center bg-white trusted-section" style=" height: auto;">
+  <div class="container" style="margin-bottom: 50px;">
+    <h2 class="fw-bold mb-3" style="margin-top: 90px; font-size: 45px; line-height: 55px; font-weight: 400px;">Trusted by Global Brands</h2>
+    <p class="text-muted mb-5">
+      It is a long established fact that a reader will be distracted by the readable content 
+      of a page when looking at its layout. The point of using.
+    </p>
+
+    <!-- Brand Logos -->
+    <div class="row justify-content-center align-items-center g-4">
+      <div class="col-6 col-md-2">
+        <img src="assets/images/brand-light-01.svg" class="img-fluid brand-logo" alt="Logitech">
+      </div>
+      <div class="col-6 col-md-2">
+        <img src="assets/images/brand-light-02.svg" class="img-fluid brand-logo" alt="Dropcam">
+      </div>
+      <div class="col-6 col-md-2">
+        <img src="assets/images/brand-light-03.svg" class="img-fluid brand-logo" alt="AMD">
+      </div>
+      <div class="col-6 col-md-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" class="img-fluid brand-logo" alt="Nike">
+      </div>
+      <div class="col-6 col-md-2">
+        <img src="assets/images/brand-light-05.svg" class="img-fluid brand-logo" alt="Mandiri">
+      </div>
+      <div class="col-6 col-md-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="img-fluid brand-logo" alt="Amazon">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Blog Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold" style="font-size: 30px;">Latest Blogs & News</h2>
+      <p class="text-muted" style="font-size: 16px;">It is a long established fact that a reader will be distracted by the readable<br> content of a page when looking at its layout. The point of using.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm blog-card h-100 overflow-hidden position-relative">
+          <div class="image-wrapper position-relative">
+            <img src="assets/images/blog-01 (1).png" class="card-img-top main-img" alt="Business">
+            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58" class="card-img-top hover-img position-absolute top-0 start-0 w-100 h-100" alt="Coding Alt">
+            <a href="https://images.unsplash.com/photo-1487014679447-9f8336841d58" class="cardbod1"> Read More</a>
+            
+            
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-start text-muted small mb-2">
+              <span class="me-3" style="margin-top: 50px;"><i class="bi bi-person"></i> Musharof Chy</span>
+              <span style="margin-top: 50px;"><i class="bi bi-calendar" ></i> 25 Dec, 2025</span>
+            </div>
+            <h5 class="card-title fw-semibold">Free advertising for your online business</h5>
+          </div>
+        </div>
+      </div>
+
+     
+     <div class="col-md-4">
+        <div class="card border-0 shadow-sm blog-card h-100 overflow-hidden position-relative">
+          <div class="image-wrapper position-relative">
+            <img src="assets/images/blog-02 (1).png" class="card-img-top main-img" alt="Coding">
+            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58" class="card-img-top hover-img position-absolute top-0 start-0 w-100 h-100" alt="Coding Alt">
+            <a href="https://images.unsplash.com/photo-1487014679447-9f8336841d58" class="cardbod1"> Read More</a>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-start text-muted small mb-2">
+              <span class="me-3" style="margin-top: 50px;"><i class="bi bi-person"></i> Musharof Chy</span>
+              <span style="margin-top: 50px;"><i class="bi bi-calendar"></i> 25 Dec, 2025</span>
+            </div>
+            <h5 class="card-title fw-semibold">Tips to quickly improve your coding speed.</h5>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm blog-card h-100 overflow-hidden position-relative">
+          <div class="image-wrapper position-relative">
+            <img src="assets/images/blog-03 (1).png" class="card-img-top main-img" alt="Coding">
+            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58" class="card-img-top hover-img position-absolute top-0 start-0 w-100 h-100" alt="Coding Alt">
+            <a href="https://images.unsplash.com/photo-1487014679447-9f8336841d58" class="cardbod1"> Read More</a>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-start text-muted small mb-2">
+              <span class="me-3" style="margin-top: 50px;"><i class="bi bi-person"></i> Musharof Chy</span>
+              <span style="margin-top: 50px;"><i class="bi bi-calendar"></i> 25 Dec, 2025</span>
+            </div>
+            <h5 class="card-title fw-semibold">Tips to quickly improve your coding speed.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Bootstrap & Icons (add once in <head> if not already) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- START: Combined Contact Section (header + two cards) -->
+<section class="position-relative bg-light overflow-hidden py-5">
+  <!-- Wave background (subtle) -->
+  <div class="position-absolute w-100 h-100 top-0 start-0" style="pointer-events:none; z-index:0;">
+    <svg viewBox="0 0 1200 160" preserveAspectRatio="none" class="w-100 h-100">
+      <path d="M0,64 C150,120 350,120 600,64 C850,8 1000,8 1200,64 L1200,160 L0,160 Z" fill="#f6f8fb" opacity="1"></path>
+    </svg>
+  </div>
+
+  <!-- Yellow semi-circle (left) -->
+  <div class="position-absolute" style="left:40px; top:36px; z-index:2;">
+    <div style="width:72px;height:144px;background:#FFD800;border-top-right-radius:72px;border-bottom-right-radius:72px;"></div>
+  </div>
+
+  <!-- Pink wavy small icon (right, below the title) -->
+  <div class="position-absolute" style="right:140px; top:170px; z-index:2;">
+    <!-- simple squiggle made with SVG -->
+    <svg width="68" height="48" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 10 C12 2 26 2 36 10 C46 18 60 18 66 10" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M2 22 C12 14 26 14 36 22 C46 30 60 30 66 22" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M2 34 C12 26 26 26 36 34 C46 42 60 42 66 34" stroke="#FF6B8A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="container position-relative" style="z-index:3;">
+    <!-- Header (title + subtitle) -->
+    <div class="text-center py-5">
+      <h2 class="display-5 fw-bold mb-3" style="letter-spacing: -0.5px;">Let’s Stay Connected</h2>
+      <p class="text-secondary mx-auto" style="max-width:760px;">
+        It is a long established fact that a reader will be distracted by the readable<br> content of a page when looking at its layout. The point of using.
+      </p>
+    </div>
+
+    <!-- Two cards side-by-side -->
+    <div class="row g-4 align-items-start">
+      <!-- Left Card: contact info -->
+      <div class="col-12 col-md-4">
+        <div class="card rounded-3 shadow-sm h-100" style="border:none;">
+          <div class="card-body p-4">
+            <!-- small pink squiggle top-right inside card -->
+            <div class="position-absolute" style="right:18px; top:18px;">
+              <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 6 C8 0 16 0 24 6" stroke="#FF6B8A" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h6 class="mb-1" style="font-size: 24px; margin-top: 30px;">Email Address</h6>
+            <p class="text-muted mb-3">support@startup.com</p>
+
+            <h6 class="mb-1" style="font-size: 24px;margin-top: 30px;">Office Location</h6>
+            <p class="text-muted mb-3">76/A, Green valley, California USA</p>
+
+            <h6 class="mb-1" style="font-size: 24px; margin-top: 30px;">Phone Number</h6>
+            <p class="text-muted mb-3">+009 8754 3433 223</p>
+
+            <h6 class="mb-1" style="font-size: 24px; margin-top: 30px;">Skype Email</h6>
+            <p class="text-muted mb-4">example@yourmail.com</p>
+
+            <hr>
+
+            <h6 class="mb-2" style="font-size: 24px;">Social Media</h6>
+          <div class="container mt-4">
+    <div class="social-icons">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-behance"></i></a>
+    </div>
+</div>
+
+            <!-- small yellow semicircle bottom-right of card -->
+            <div class="position-absolute" style="right:12px; bottom:12px;">
+              <div style="width:28px;height:56px;background:#FFD800;border-top-left-radius:28px;border-bottom-left-radius:28px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Card: form -->
+      <div class="col-12 col-md-8">
+        <div class="card rounded-3 shadow-sm" style="border:none;">
+          <div class="card-body1 p-4">
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small text-muted">Full name</label>
+                  <input class="form-control form-control-lg rounded-3" placeholder="Devid Wonder" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small text-muted">Email address</label>
+                  <input class="form-control form-control-lg rounded-3" placeholder="example@gmail.com" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small text-muted">Phone number</label>
+                  <input class="form-control form-control-lg rounded-3" placeholder="+009 3342 3432" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small text-muted">Subject</label>
+                  <input class="form-control form-control-lg rounded-3" placeholder="Type your subject" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label small text-muted" style="font-size: 20px;">Message</label>
+                  <textarea class="form-control form-control-lg rounded-3" rows="5" placeholder="Message"></textarea>
+                </div>
+
+                <div class="col-12 text-center mt-3">
+                  <button class="btn btn-primary btn-lg rounded-pill px-5">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> <!-- end right col -->
+    </div> <!-- end row -->
+  </div> <!-- end container -->
+</section>
+
+<!-- Optional: Bootstrap JS (only if you need it elsewhere) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Small custom styles to tighten spacing and match screenshot -->
+<style>
+  .p{color: #6b7280;}
+  section.bg-light { background: #f5f8fb; }
+  .card-body1 { position: relative; }
+  h2.display-5 { font-weight: 800; color: #0f1724; }
+  .form-control-lg { background: #fff; border: 1px solid #e6e9ef; }
+  .btn-primary { background: #5b6cff; border-color: #5b6cff; box-shadow: 0 6px 22px rgba(91,108,255,0.14); }
+  .btn-primary:hover { background: #4656f0; border-color:#4656f0; }
+  /* ensure decorations don't overlap on very small screens */
+  @media (max-width: 575.98px) {
+    .position-absolute[style*="right:140px"] { display:none; } /* hide right squiggle */
+    .position-absolute[style*="left:40px"] { left:18px; top:8px; transform:scale(.85); }
+  }
+</style>
+<!-- END section -->
+
+
+<!-- Bootstrap CDN (add once in your <head> if not already included) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- START: Join with 5000+ Startups Section -->
+<section class="position-relative overflow-hidden py-5" style="background:#5b6cff;">
+  <!-- Wavy background (SVG pattern) -->
+  <div class="position-absolute bottom-0 start-0 w-100" style="opacity:0.25; pointer-events:none;">
+    <img src="assets/images/shape-16.svg" alt="">
+      <path fill="#ffffff" fill-opacity="0.15"
+        d="M0,160 C120,220 280,240 440,200 C640,150 800,60 1000,100 C1180,140 1300,240 1440,180 L1440,320 L0,320Z"></path>
+    </svg>
+  </div>
+
+  <div class="container position-relative text-white py-5" style="z-index:1;">
+    <div class="row align-items-center">
+      <!-- Left content -->
+      <div class="col-lg-8">
+        <h2 class="fw-bold display-5 mb-3" style="color: white;">Join with 5000+ Startups<br>Growing with Base.</h2>
+        <p class="lead mb-0 opacity-75">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem.
+          Duis sed odio lorem. In a efficitur leo. Ut venenatis rhoncus.
+        </p>
+      </div>
+
+      <!-- Right button -->
+      <div class="col-lg-4 text-lg-end text-center mt-4 mt-lg-0">
+        <a href="#" class="btn btn-light btn-lg fw-semibold rounded-pill px-4 py-2 shadow-sm">
+          Get Started Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Optional Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom fine-tuning -->
+<style>
+  section {
+    font-family: "Inter", sans-serif;
+  }
+  .btn-light:hover {
+    background-color: #eef0ff;
+    color: #1a1a1a;
+  }
+</style>
+<!-- END section -->
+
+
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+<footer>
+  <div class="container">
+    <div class="row justify-content-between">
+      <!-- Logo & About -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="footer-logo">
+          <img src="assets/images/logo-light.svg" alt="Logo" style="width: 50%;">
+        </div>
+        <p class="footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="social-icons1">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-linkedin-in"></i>
+          <i class="fab fa-behance"></i>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-3 col-6 mb-4 footer-links">
+        <h1 class="footer-title" style="font-size: 22px;">Quick Links</h1>
+        <a href="#">Home</a>
+        <a href="#">Product</a>
+        <a href="#">Careers</a>
+        <a href="#">Pricing</a>
+      </div>
+
+      <!-- Services -->
+      <div class="col-lg-2 col-md-3 col-6 mb-4 footer-links">
+        <h6 class="footer-title">Services</h6>
+        <a href="#">Web Development</a>
+        <a href="#">Graphics Design</a>
+        <a href="#">Digital Marketing</a>
+        <a href="#">UI/UX Design</a>
+      </div>
+
+      <!-- Support -->
+      <div class="col-lg-2 col-md-3 col-6 mb-4 footer-links">
+        <h6 class="footer-title">Support</h6>
+        <a href="#">Company</a>
+        <a href="#">Press media</a>
+        <a href="#">Our Blog</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h6 class="footer-title" >Newsletter</h6>
+        <p class="footer-text" style="margin-top: 40px;">Subscribe to receive future<br> updates</p>
+        <form class="d-flex">
+          <input type="email" class="form-control me-2" placeholder="Email address">
+          <button class="btn btn-primary">→</button>
+        </form>
+      </div>
+    </div>
+
+    
+    <div class="footer-line container">
+  
+  <div class="row align-items-center mt-4">
+
+    <!-- Left Links -->
+    <div class="col-md-6 d-flex flex-wrap gap-4" style="font-size: 20px;">
+      <a href="#" style="text-decoration: none; color: #6b7280;">English</a>
+      <a href="#" style="text-decoration: none; color: #6b7280;">Privacy Policy</a>
+      <a href="#" style="text-decoration: none; color: #6b7280;">Support</a>
+    </div>
+
+    <!-- Right Text -->
+    <div class="col-md-6 text-md-end mt-3 mt-md-0" style="font-size: 15px;">
+      © 2025 Base. All rights reserved. Distributed by Theam Wagon
+    </div>
+
+  </div>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+</body>
+</html>
